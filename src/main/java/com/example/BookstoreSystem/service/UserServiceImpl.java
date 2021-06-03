@@ -2,6 +2,7 @@ package com.example.BookstoreSystem.service;
 
 import com.example.BookstoreSystem.dao.UserDao;
 import com.example.BookstoreSystem.model.UserAddressDto;
+import com.example.BookstoreSystem.model.UserCardDto;
 import com.example.BookstoreSystem.model.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,8 @@ public class UserServiceImpl implements UserService{
     public UserDto selectUserInfo(String userId) { return userDao.selectUserInfo(userId); }
 
     @Override
-    public List<UserAddressDto> selectUserAddressList() { return userDao.selectUserAddressList(); }
+    public List<UserAddressDto> selectUserAddressInfo(String userId) { return userDao.selectUserAddressInfo(userId); }
 
     @Override
-    public List<UserAddressDto> selectUserAddressInfo(String userId) { return userDao.selectUserAddressInfo(userId); }
+    public List<UserCardDto> selectUserCardInfo(String userId) { return userDao.selectUserCardInfo(userId); }
 }

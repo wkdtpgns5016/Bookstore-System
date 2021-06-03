@@ -10,12 +10,11 @@
         select * from user where id = #{userId}
     </select>
 
-    <select id="selectUserAddressList" resultType="com.example.BookstoreSystem.model.UserAddressDto">
-        select * from user_address
-    </select>
-
     <select id="selectUserAddressInfo" resultType="com.example.BookstoreSystem.model.UserAddressDto">
         select * from user_address where user_id = #{userId}
     </select>
 
+    <select id="selectUserCardInfo" resultType="com.example.BookstoreSystem.model.UserCardDto">
+        select * from user_card where user_id = #{userId}
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.example.BookstoreSystem.controller;
 
 import com.example.BookstoreSystem.model.UserAddressDto;
+import com.example.BookstoreSystem.model.UserCardDto;
 import com.example.BookstoreSystem.model.UserDto;
 import com.example.BookstoreSystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,10 @@ public class UserController {
     @GetMapping("/users{userId}")
     public UserDto selectUserInfo(@PathVariable String userId) { return userService.selectUserInfo(userId); }
 
-    @GetMapping("/user-addresses")
-    public List<UserAddressDto> selectUserAddressList() {
-        return userService.selectUserAddressList();
-    }
-
     @GetMapping("/user-addresses/{userId}")
     public List<UserAddressDto> selectUserAddressInfo(@PathVariable String userId) { return userService.selectUserAddressInfo(userId); }
+
+    @GetMapping("/user-cards/{userId}")
+    public List<UserCardDto> selectUserCardInfo(@PathVariable String userId) { return userService.selectUserCardInfo(userId); }
+
 }
