@@ -16,7 +16,13 @@ public class UserDao {
         this.sqlSession = sqlSession;
     }
 
-    public List<UserDto> getAllUsers() {
-        return sqlSession.selectList("com.example.BookstoreSystem.dao.UserDao.getAllUsers");
+    public List<UserDto> selectUserList() {
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.UserDao.selectUserList");
+    }
+
+    public UserDto selectUserInfo(String userId) {
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("userId",userId);
+        return sqlSession.selectOne("com.example.BookstoreSystem.dao.UserDao.selectUserInfo",param);
     }
 }
