@@ -1,5 +1,7 @@
 package com.example.BookstoreSystem.dao;
 
+import com.example.BookstoreSystem.model.UserAddressDto;
+import com.example.BookstoreSystem.model.UserCardDto;
 import com.example.BookstoreSystem.model.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
@@ -16,7 +18,25 @@ public class UserDao {
         this.sqlSession = sqlSession;
     }
 
-    public List<UserDto> getAllUsers() {
-        return sqlSession.selectList("com.example.BookstoreSystem.dao.UserDao.getAllUsers");
+    public List<UserDto> selectUserList() {
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.UserDao.selectUserList");
+    }
+
+    public UserDto selectUserInfo(String userId) {
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("userId",userId);
+        return sqlSession.selectOne("com.example.BookstoreSystem.dao.UserDao.selectUserInfo",param);
+    }
+
+    public List<UserAddressDto> selectUserAddressInfo(String userId) {
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("userId",userId);
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.UserDao.selectUserAddressInfo",param);
+    }
+
+    public List<UserCardDto> selectUserCardInfo(String userId) {
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("userId",userId);
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.UserDao.selectUserCardInfo",param);
     }
 }

@@ -2,7 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.BookstoreSystem.dao.UserDao">
-    <select id="getAllUsers" resultType="com.example.BookstoreSystem.model.UserDto">
+    <select id="selectUserList" resultType="com.example.BookstoreSystem.model.UserDto">
         select * from user
+    </select>
+
+    <select id="selectUserInfo" resultType="com.example.BookstoreSystem.model.UserDto">
+        select * from user where id = #{userId}
+    </select>
+
+    <select id="selectUserAddressInfo" resultType="com.example.BookstoreSystem.model.UserAddressDto">
+        select * from user_address where user_id = #{userId}
+    </select>
+
+    <select id="selectUserCardInfo" resultType="com.example.BookstoreSystem.model.UserCardDto">
+        select * from user_card where user_id = #{userId}
     </select>
 </mapper>
