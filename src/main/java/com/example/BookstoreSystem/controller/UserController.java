@@ -35,4 +35,13 @@ public class UserController {
     @PostMapping("/user-cards")
     public int insertUserCardInfo(@RequestBody UserCardDto card){ return userService.insertUserCardInfo(card); }
 
+    @PutMapping("/users")
+    public int updateUserInfo(@RequestBody UserDto user){ return userService.updateUserInfo(user); }
+
+    @PutMapping("/user-addresses")
+    public int updateUserAddressInfo(@RequestBody UserAddressDto address){ return userService.updateUserAddressInfo(address); }
+
+    @PutMapping("/user-cards")
+    public int updateUserCardInfo(@RequestBody UserCardDto card){ return userService.updateUserCardInfo(card); }
+
 }
