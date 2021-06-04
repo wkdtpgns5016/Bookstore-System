@@ -62,4 +62,28 @@
         WHERE user_id = #{card.userId} and
               number = #{card.number};
     </update>
+
+    <delete id="deleteUserInfo">
+        DELETE FROM user WHERE id = #{userId};
+    </delete>
+
+    <delete id="deleteUserAddressList">
+        DELETE FROM user_address
+        WHERE user_id = #{userId};
+    </delete>
+
+    <delete id="deleteUserCardList">
+        DELETE FROM user_card
+        WHERE user_id = #{userId};
+    </delete>
+
+    <delete id="deleteUserAddressInfo">
+        DELETE FROM user_address
+        WHERE user_id = #{userId} and type = #{type};
+    </delete>
+
+    <delete id="deleteUserCardInfo">
+        DELETE FROM user_card
+        WHERE user_id = #{userId} and number = #{number};
+    </delete>
 </mapper>

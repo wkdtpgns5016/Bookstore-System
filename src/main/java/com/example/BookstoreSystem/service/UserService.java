@@ -17,4 +17,8 @@ public interface UserService {
     public int updateUserInfo(UserDto user);
     public int updateUserAddressInfo(UserAddressDto address);
     public int updateUserCardInfo(UserCardDto card);
+    public int deleteUserInfo(String userId);
+    public int deleteUserAddressInfo(String userId, String type);
+    public int deleteUserCardInfo(String userId, String number);
+
 }
