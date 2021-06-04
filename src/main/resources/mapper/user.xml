@@ -21,7 +21,7 @@
     <insert id="insertUserInfo" parameterType="com.example.BookstoreSystem.model.UserDto">
         INSERT INTO user
             (id, name, password)
-        VALUES(#{user.userId}, #{user.userId}, #{user.userId});
+        VALUES(#{user.id}, #{user.name}, #{user.password});
     </insert>
 
     <insert id="insertUserAddressInfo" parameterType="com.example.BookstoreSystem.model.UserAddressDto">

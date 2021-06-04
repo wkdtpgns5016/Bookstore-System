@@ -26,4 +26,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<UserCardDto> selectUserCardInfo(String userId) { return userDao.selectUserCardInfo(userId); }
+
+    @Override
+    public int insertUserInfo(UserDto user) { return userDao.insertUserInfo(user); }
 }
