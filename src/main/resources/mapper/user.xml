@@ -81,4 +81,9 @@
         DELETE FROM user_address
         WHERE user_id = #{userId} and type = #{type};
     </delete>
+
+    <delete id="deleteUserCardInfo">
+        DELETE FROM user_card
+        WHERE user_id = #{userId} and number = #{number};
+    </delete>
 </mapper>

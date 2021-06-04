@@ -19,4 +19,5 @@ public interface UserService {
     public int updateUserCardInfo(UserCardDto card);
     public int deleteUserInfo(String userId);
     public int deleteUserAddressInfo(String userId, String type);
+    public int deleteUserCardInfo(String userId, String number);
 }

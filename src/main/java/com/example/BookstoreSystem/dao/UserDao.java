@@ -101,4 +101,10 @@ public class UserDao {
         return sqlSession.delete("com.example.BookstoreSystem.dao.UserDao.deleteUserAddressInfo",param);
     }
 
+    public int deleteUserCardInfo(String userId, String number) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("userId",userId);
+        param.put("number",number);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.UserDao.deleteUserCardInfo",param);
+    }
 }

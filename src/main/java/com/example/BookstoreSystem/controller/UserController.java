@@ -50,4 +50,7 @@ public class UserController {
     @DeleteMapping("/user-addresses/{userId}/{type}")
     public int deleteUserAddressInfo(@PathVariable String userId, @PathVariable String type) { return userService.deleteUserAddressInfo(userId, type); }
 
+    @DeleteMapping("/user-cards/{userId}/{number}")
+    public int deleteUserCardInfo(@PathVariable String userId, @PathVariable String number) { return userService.deleteUserCardInfo(userId, number); }
+
 }
