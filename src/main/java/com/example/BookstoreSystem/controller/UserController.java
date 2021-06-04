@@ -35,4 +35,7 @@ public class UserController {
     @PostMapping("/user-cards")
     public int insertUserCardInfo(@RequestBody UserCardDto card){ return userService.insertUserCardInfo(card); }
 
+    @PutMapping("/users")
+    public int updateUserInfo(@RequestBody UserDto user){ return userService.updateUserInfo(user); }
+
 }
