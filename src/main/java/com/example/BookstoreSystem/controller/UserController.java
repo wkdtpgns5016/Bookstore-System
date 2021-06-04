@@ -38,4 +38,7 @@ public class UserController {
     @PutMapping("/users")
     public int updateUserInfo(@RequestBody UserDto user){ return userService.updateUserInfo(user); }
 
+    @PutMapping("/user-addresses")
+    public int updateUserAddressInfo(@RequestBody UserAddressDto address){ return userService.updateUserAddressInfo(address); }
+
 }

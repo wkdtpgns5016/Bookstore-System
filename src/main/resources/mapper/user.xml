@@ -48,11 +48,11 @@
 
     <update id="updateUserAddressInfo" parameterType="com.example.BookstoreSystem.model.UserAddressDto">
         UPDATE user_address
-        SET type = #{address.type},
-            zone_code = #{address.zoneCode},
+        SET zone_code = #{address.zoneCode},
             address_default = #{address.addressDefault},
-            address_detail = #{address.addressDetail},
-        WHERE user_id = #{address.userId};
+            address_detail = #{address.addressDetail}
+        WHERE user_id = #{address.userId} and
+              type = #{address.type};
     </update>
 
     <update id="updateUserCardInfo" parameterType="com.example.BookstoreSystem.model.UserCardDto">
