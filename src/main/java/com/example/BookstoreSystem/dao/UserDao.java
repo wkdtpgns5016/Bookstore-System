@@ -45,4 +45,10 @@ public class UserDao {
         param.put("user",user);
         return sqlSession.insert("com.example.BookstoreSystem.dao.UserDao.insertUserInfo",param);
     }
+
+    public int insertUserAddressInfo(UserAddressDto address) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("address",address);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.UserDao.insertUserAddressInfo",param);
+    }
 }

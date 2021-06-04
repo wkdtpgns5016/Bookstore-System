@@ -12,4 +12,5 @@ public interface UserService {
     public List<UserAddressDto> selectUserAddressInfo(String userId);
     public List<UserCardDto> selectUserCardInfo(String userId);
     public int insertUserInfo(UserDto user);
+    public int insertUserAddressInfo(UserAddressDto address);
 }

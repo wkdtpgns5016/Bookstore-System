@@ -28,4 +28,8 @@ public class UserController {
 
     @PostMapping("/users")
     public int insertUserInfo(@RequestBody UserDto user){ return userService.insertUserInfo(user); }
+
+    @PostMapping("/user-addresses")
+    public int insertUserAddressInfo(@RequestBody UserAddressDto address){ return userService.insertUserAddressInfo(address); }
+
 }
