@@ -57,9 +57,9 @@
 
     <update id="updateUserCardInfo" parameterType="com.example.BookstoreSystem.model.UserCardDto">
         UPDATE user_card
-        SET number = #{card.number},
-            expiration_date = #{card.expirationDate},
+        SET expiration_date = #{card.expirationDate},
             type = #{card.type}
-        WHERE user_id = #{card.userId};
+        WHERE user_id = #{card.userId} and
+              number = #{card.number};
     </update>
 </mapper>

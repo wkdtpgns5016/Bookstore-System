@@ -16,4 +16,5 @@ public interface UserService {
     public int insertUserCardInfo(UserCardDto card);
     public int updateUserInfo(UserDto user);
     public int updateUserAddressInfo(UserAddressDto address);
+    public int updateUserCardInfo(UserCardDto card);
 }
