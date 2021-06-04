@@ -17,4 +17,26 @@
     <select id="selectUserCardInfo" resultType="com.example.BookstoreSystem.model.UserCardDto">
         select * from user_card where user_id = #{userId}
     </select>
+
+    <insert id="insertUserInfo" parameterType="com.example.BookstoreSystem.model.UserDto">
+        INSERT INTO user
+            (id, name, password)
+        VALUES(#{user.id}, #{user.name}, #{user.password});
+    </insert>
+
+    <insert id="insertUserAddressInfo" parameterType="com.example.BookstoreSystem.model.UserAddressDto">
+        INSERT INTO user_address
+            (user_id, type, zone_code, address_default, address_detail)
+        VALUES(#{address.userId},
+               #{address.type},
+               #{address.zoneCode},
+               #{address.addressDefault},
+               #{address.addressDetail});
+    </insert>
+
+    <insert id="insertUserCardInfo" parameterType="com.example.BookstoreSystem.model.UserCardDto">
+        INSERT INTO user_card
+            (user_id, number, expiration_date, type)
+        VALUES(#{card.userId}, #{card.number}, #{card.expirationDate}, #{card.type});
+    </insert>
 </mapper>

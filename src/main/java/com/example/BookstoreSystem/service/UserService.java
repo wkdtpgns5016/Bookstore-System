@@ -9,6 +9,9 @@ import java.util.List;
 public interface UserService {
     public List selectUserList();
     public UserDto selectUserInfo(String userId);
-    List<UserAddressDto> selectUserAddressInfo(String userId);
-    List<UserCardDto> selectUserCardInfo(String userId);
+    public List<UserAddressDto> selectUserAddressInfo(String userId);
+    public List<UserCardDto> selectUserCardInfo(String userId);
+    public int insertUserInfo(UserDto user);
+    public int insertUserAddressInfo(UserAddressDto address);
+    public int insertUserCardInfo(UserCardDto card);
 }

@@ -39,4 +39,22 @@ public class UserDao {
         param.put("userId",userId);
         return sqlSession.selectList("com.example.BookstoreSystem.dao.UserDao.selectUserCardInfo",param);
     }
+
+    public int insertUserInfo(UserDto user) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("user",user);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.UserDao.insertUserInfo",param);
+    }
+
+    public int insertUserAddressInfo(UserAddressDto address) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("address",address);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.UserDao.insertUserAddressInfo",param);
+    }
+
+    public int insertUserCardInfo(UserCardDto card) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("card",card);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.UserDao.insertUserCardInfo",param);
+    }
 }
