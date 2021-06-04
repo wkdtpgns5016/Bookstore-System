@@ -39,4 +39,27 @@
             (user_id, number, expiration_date, type)
         VALUES(#{card.userId}, #{card.number}, #{card.expirationDate}, #{card.type});
     </insert>
+
+    <update id="updateUserInfo" parameterType="com.example.BookstoreSystem.model.UserDto">
+        UPDATE user
+        SET name = #{user.name}, password = #{user.password}
+        WHERE id = #{user.id};
+    </update>
+
+    <update id="updateUserAddressInfo" parameterType="com.example.BookstoreSystem.model.UserAddressDto">
+        UPDATE user_address
+        SET type = #{address.type},
+            zone_code = #{address.zoneCode},
+            address_default = #{address.addressDefault},
+            address_detail = #{address.addressDetail},
+        WHERE user_id = #{address.userId};
+    </update>
+
+    <update id="updateUserCardInfo" parameterType="com.example.BookstoreSystem.model.UserCardDto">
+        UPDATE user_card
+        SET number = #{card.number},
+            expiration_date = #{card.expirationDate},
+            type = #{card.type}
+        WHERE user_id = #{card.userId};
+    </update>
 </mapper>
