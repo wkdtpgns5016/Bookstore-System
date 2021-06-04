@@ -67,13 +67,18 @@
         DELETE FROM user WHERE id = #{userId};
     </delete>
 
-    <delete id="deleteUserAddressInfo">
+    <delete id="deleteUserAddressList">
         DELETE FROM user_address
         WHERE user_id = #{userId};
     </delete>
 
-    <delete id="deleteUserCardInfo">
+    <delete id="deleteUserCardList">
         DELETE FROM user_card
         WHERE user_id = #{userId};
+    </delete>
+
+    <delete id="deleteUserAddressInfo">
+        DELETE FROM user_address
+        WHERE user_id = #{userId} and type = #{type};
     </delete>
 </mapper>

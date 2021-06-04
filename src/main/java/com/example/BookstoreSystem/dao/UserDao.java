@@ -82,15 +82,23 @@ public class UserDao {
         return sqlSession.delete("com.example.BookstoreSystem.dao.UserDao.deleteUserInfo",param);
     }
 
-    public int deleteUserAddressInfo(String userId) {
+    public int deleteUserAddressList(String userId) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("userId",userId);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.UserDao.deleteUserAddressList",param);
+    }
+
+    public int deleteUserCardList(String userId) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("userId",userId);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.UserDao.deleteUserCardList",param);
+    }
+
+    public int deleteUserAddressInfo(String userId, String type) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("userId",userId);
+        param.put("type",type);
         return sqlSession.delete("com.example.BookstoreSystem.dao.UserDao.deleteUserAddressInfo",param);
     }
 
-    public int deleteUserCardInfo(String userId) {
-        HashMap<String,Object> param = new HashMap<>();
-        param.put("userId",userId);
-        return sqlSession.delete("com.example.BookstoreSystem.dao.UserDao.deleteUserCardInfo",param);
-    }
 }

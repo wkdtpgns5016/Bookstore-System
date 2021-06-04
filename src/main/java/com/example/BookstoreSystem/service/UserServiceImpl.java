@@ -47,9 +47,14 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int deleteUserInfo(String userId) {
-        userDao.deleteUserAddressInfo(userId);
-        userDao.deleteUserCardInfo(userId);
+        userDao.deleteUserAddressList(userId);
+        userDao.deleteUserCardList(userId);
         return userDao.deleteUserInfo(userId);
+    }
+
+    @Override
+    public int deleteUserAddressInfo(String userId, String type) {
+        return userDao.deleteUserAddressInfo(userId, type);
     }
 
 }
