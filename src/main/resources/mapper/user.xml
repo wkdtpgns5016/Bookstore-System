@@ -37,6 +37,6 @@
     <insert id="insertUserCardInfo" parameterType="com.example.BookstoreSystem.model.UserCardDto">
         INSERT INTO user_card
             (user_id, number, expiration_date, type)
-        VALUES(#{address.userId}, #{address.number}, #{address.expirationDate}, #{address.type});
+        VALUES(#{card.userId}, #{card.number}, #{card.expirationDate}, #{card.type});
     </insert>
 </mapper>

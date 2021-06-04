@@ -51,4 +51,10 @@ public class UserDao {
         param.put("address",address);
         return sqlSession.insert("com.example.BookstoreSystem.dao.UserDao.insertUserAddressInfo",param);
     }
+
+    public int insertUserCardInfo(UserCardDto card) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("card",card);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.UserDao.insertUserCardInfo",param);
+    }
 }

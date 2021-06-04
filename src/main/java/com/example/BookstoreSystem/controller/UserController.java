@@ -32,4 +32,7 @@ public class UserController {
     @PostMapping("/user-addresses")
     public int insertUserAddressInfo(@RequestBody UserAddressDto address){ return userService.insertUserAddressInfo(address); }
 
+    @PostMapping("/user-cards")
+    public int insertUserCardInfo(@RequestBody UserCardDto card){ return userService.insertUserCardInfo(card); }
+
 }
