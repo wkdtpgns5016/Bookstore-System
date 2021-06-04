@@ -63,17 +63,17 @@
               number = #{card.number};
     </update>
 
-    <delete id="deleteUserInfo" parameterType="com.example.BookstoreSystem.model.UserDto">
+    <delete id="deleteUserInfo">
         DELETE FROM user WHERE id = #{userId};
     </delete>
 
-    <delete id="deleteUserAddressInfo" parameterType="com.example.BookstoreSystem.model.UserAddressDto">
+    <delete id="deleteUserAddressInfo">
         DELETE FROM user_address
-        WHERE user_id = #{userId} and type = #{type};
+        WHERE user_id = #{userId};
     </delete>
 
-    <delete id="deleteUserCardInfo" parameterType="com.example.BookstoreSystem.model.UserCardDto">
+    <delete id="deleteUserCardInfo">
         DELETE FROM user_card
-        WHERE user_id = #{userId} and number = #{number};
+        WHERE user_id = #{userId};
     </delete>
 </mapper>

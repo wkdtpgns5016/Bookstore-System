@@ -45,4 +45,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public int updateUserCardInfo(UserCardDto card) { return userDao.updateUserCardInfo(card); }
 
+    @Override
+    public int deleteUserInfo(String userId) {
+        userDao.deleteUserAddressInfo(userId);
+        userDao.deleteUserCardInfo(userId);
+        return userDao.deleteUserInfo(userId);
+    }
+
 }

@@ -44,4 +44,6 @@ public class UserController {
     @PutMapping("/user-cards")
     public int updateUserCardInfo(@RequestBody UserCardDto card){ return userService.updateUserCardInfo(card); }
 
+    @DeleteMapping("/users/{userId}")
+    public int deleteUserInfo(@PathVariable String userId) { return userService.deleteUserInfo(userId); }
 }
