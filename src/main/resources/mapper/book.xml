@@ -21,4 +21,9 @@
         SET title=#{book.title}, inventory=#{book.inventory}, price=#{book.price}
         WHERE id=#{book.id};
     </update>
+
+    <delete id="deleteBookInfo">
+        DELETE FROM bookdb.book
+        WHERE id=#{book.id};
+    </delete>
 </mapper>
