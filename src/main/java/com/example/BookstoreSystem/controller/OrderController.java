@@ -2,9 +2,7 @@ package com.example.BookstoreSystem.controller;
 
 import com.example.BookstoreSystem.model.OrderDto;
 import com.example.BookstoreSystem.service.OrderService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,4 +16,7 @@ public class OrderController {
 
     @GetMapping("/{number}")
     public OrderDto selectOrderInfo(@PathVariable int number) { return orderService.selectOrderInfo(number); }
+
+    @PostMapping("")
+    public int insertOrderInfo(@RequestBody OrderDto order) { return orderService.insertOrderInfo(order); }
 }

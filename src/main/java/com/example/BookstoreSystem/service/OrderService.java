@@ -7,4 +7,5 @@ import java.util.List;
 public interface OrderService {
     public List<OrderDto> selectOrderList();
     public OrderDto selectOrderInfo(int number);
+    public int insertOrderInfo(OrderDto order);
 }

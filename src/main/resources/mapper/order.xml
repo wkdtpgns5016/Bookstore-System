@@ -3,10 +3,34 @@
 
 <mapper namespace="com.example.BookstoreSystem.dao.OrderDao">
     <select id="selectOrderList" resultType="com.example.BookstoreSystem.model.OrderDto">
-        SELECT * FROM order;
+        SELECT * FROM `order`;
     </select>
 
     <select id="selectOrderInfo" resultType="com.example.BookstoreSystem.model.OrderDto">
-        SELECT * FROM order WHERE number = #{number};
+        SELECT * FROM `order` WHERE `number` = #{number};
     </select>
+
+    <insert id="insertOrderInfo" parameterType="com.example.BookstoreSystem.model.OrderDto">
+        INSERT INTO `order`
+        (`date`,
+         total_amount,
+         card_number,
+         card_expiration_date,
+         card_type,
+         user_id,
+         address_zone_code,
+         default_address,
+         detail_address,
+         `state`)
+        VALUES(#{order.date},
+               #{order.totalAmount},
+               #{order.cardNumber},
+               #{order.cardExpirationDate},
+               #{order.cardType},
+               #{order.userId},
+               #{order.addressZoneCode},
+               #{order.defaultAddress},
+               #{order.detailAddress},
+               #{order.state});
+    </insert>
 </mapper>
