@@ -20,4 +20,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public int insertBookInfo(BookDto book) { return bookDao.insertBookInfo(book); }
 
+    @Override
+    public int updateBookInfo(BookDto book) { return bookDao.updateBookInfo(book); }
+
 }

@@ -15,4 +15,10 @@
             (title, inventory, price)
         VALUES(#{book.title}, #{book.inventory}, #{book.price});
     </insert>
+
+    <update id="updateBookInfo" parameterType="com.example.BookstoreSystem.model.BookDto">
+        UPDATE bookdb.book
+        SET title=#{book.title}, inventory=#{book.inventory}, price=#{book.price}
+        WHERE id=#{book.id};
+    </update>
 </mapper>
