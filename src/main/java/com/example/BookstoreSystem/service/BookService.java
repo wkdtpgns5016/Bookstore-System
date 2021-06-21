@@ -7,4 +7,5 @@ public interface BookService {
     public List<BookDto> selectBookList();
     public BookDto selectBookInfo(String bookId);
     public int insertBookInfo(BookDto book);
+    public int updateBookInfo(BookDto book);
 }

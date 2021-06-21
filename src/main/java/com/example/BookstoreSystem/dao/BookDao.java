@@ -31,4 +31,10 @@ public class BookDao {
         param.put("book",book);
         return sqlSession.insert("com.example.BookstoreSystem.dao.BookDao.insertBookInfo",param);
     }
+
+    public int updateBookInfo(BookDto book) {
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("book",book);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.BookDao.updateBookInfo",param);
+    }
 }

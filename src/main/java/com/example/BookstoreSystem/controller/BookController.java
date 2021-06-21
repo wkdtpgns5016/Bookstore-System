@@ -21,4 +21,7 @@ public class BookController {
 
     @PostMapping("")
     public int insertBookInfo(@RequestBody BookDto book){ return bookService.insertBookInfo(book); }
+
+    @PutMapping("")
+    public int updateBookInfo(@RequestBody BookDto book){ return bookService.updateBookInfo(book); }
 }
