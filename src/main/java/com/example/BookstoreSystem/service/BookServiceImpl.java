@@ -16,4 +16,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookDto selectBookInfo(String bookId) { return bookDao.selectBookInfo(bookId); }
+
+    @Override
+    public int insertBookInfo(BookDto book) { return bookDao.insertBookInfo(book); }
+
 }

@@ -9,4 +9,10 @@
     <select id="selectBookInfo" resultType="com.example.BookstoreSystem.model.BookDto">
         SELECT * FROM book WHERE id = #{bookId};
     </select>
+
+    <insert id="insertBookInfo" parameterType="com.example.BookstoreSystem.model.BookDto">
+        INSERT INTO bookdb.book
+            (title, inventory, price)
+        VALUES(#{book.title}, #{book.inventory}, #{book.price});
+    </insert>
 </mapper>

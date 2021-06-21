@@ -26,4 +26,9 @@ public class BookDao {
         return sqlSession.selectOne("com.example.BookstoreSystem.dao.BookDao.selectBookInfo",param);
     }
 
+    public int insertBookInfo(BookDto book) {
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("book",book);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.BookDao.insertBookInfo",param);
+    }
 }
