@@ -8,4 +8,5 @@ public interface BookService {
     public BookDto selectBookInfo(String bookId);
     public int insertBookInfo(BookDto book);
     public int updateBookInfo(BookDto book);
+    public int deleteBookInfo(String bookId);
 }

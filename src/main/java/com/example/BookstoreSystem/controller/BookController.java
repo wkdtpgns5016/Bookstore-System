@@ -24,4 +24,7 @@ public class BookController {
 
     @PutMapping("")
     public int updateBookInfo(@RequestBody BookDto book){ return bookService.updateBookInfo(book); }
+
+    @DeleteMapping("/{bookId}")
+    public int deleteBookInfo(@PathVariable String bookId){ return bookService.deleteBookInfo(bookId); }
 }
