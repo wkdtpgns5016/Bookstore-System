@@ -23,4 +23,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public int updateOrderInfo(OrderDto order) { return orderDao.updateOrderInfo(order); }
+
+    @Override
+    public int deleteOrderInfo(int number) { return orderDao.deleteOrderInfo(number); }
 }

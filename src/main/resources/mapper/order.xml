@@ -35,7 +35,7 @@
     </insert>
 
     <update id="updateOrderInfo" parameterType="com.example.BookstoreSystem.model.OrderDto">
-        UPDATE bookdb.`order`
+        UPDATE `order`
         SET `date`=#{order.date},
             total_amount=#{order.totalAmount},
             card_number=#{order.cardNumber},
@@ -48,4 +48,9 @@
             `state`=#{order.state}
         WHERE `number`=#{order.number};
     </update>
+
+    <delete id="deleteOrderInfo">
+        DELETE FROM `order`
+        WHERE `number`=#{order.number};
+    </delete>
 </mapper>

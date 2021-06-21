@@ -34,6 +34,12 @@ public class OrderDao {
     public int updateOrderInfo(OrderDto order) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("order", order);
-        return sqlSession.update("com.example.BookstoreSystem.dao.orderDao.insertOrderInfo",param);
+        return sqlSession.update("com.example.BookstoreSystem.dao.orderDao.updateOrderInfo",param);
+    }
+
+    public int deleteOrderInfo(int number) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("number", number);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.orderDao.deleteOrderInfo",param);
     }
 }

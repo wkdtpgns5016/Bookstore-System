@@ -22,4 +22,7 @@ public class OrderController {
 
     @PutMapping("")
     public int updateOrderInfo(@RequestBody OrderDto order) { return orderService.updateOrderInfo(order); }
+
+    @DeleteMapping("{number}")
+    public int deleteOrderInfo(@PathVariable int number) { return orderService.deleteOrderInfo(number); }
 }

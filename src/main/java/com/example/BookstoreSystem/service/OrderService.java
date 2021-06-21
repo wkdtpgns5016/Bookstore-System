@@ -9,4 +9,5 @@ public interface OrderService {
     public OrderDto selectOrderInfo(int number);
     public int insertOrderInfo(OrderDto order);
     public int updateOrderInfo(OrderDto order);
+    public int deleteOrderInfo(int number);
 }
