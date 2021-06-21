@@ -8,4 +8,5 @@ public interface OrderService {
     public List<OrderDto> selectOrderList();
     public OrderDto selectOrderInfo(int number);
     public int insertOrderInfo(OrderDto order);
+    public int updateOrderInfo(OrderDto order);
 }

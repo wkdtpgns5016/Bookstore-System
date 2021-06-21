@@ -19,4 +19,7 @@ public class OrderController {
 
     @PostMapping("")
     public int insertOrderInfo(@RequestBody OrderDto order) { return orderService.insertOrderInfo(order); }
+
+    @PutMapping("")
+    public int updateOrderInfo(@RequestBody OrderDto order) { return orderService.updateOrderInfo(order); }
 }

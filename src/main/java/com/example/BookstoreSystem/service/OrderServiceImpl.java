@@ -20,4 +20,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public int insertOrderInfo(OrderDto order) { return orderDao.insertOrderInfo(order); }
+
+    @Override
+    public int updateOrderInfo(OrderDto order) { return orderDao.updateOrderInfo(order); }
 }

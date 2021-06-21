@@ -30,4 +30,10 @@ public class OrderDao {
         param.put("order", order);
         return sqlSession.insert("com.example.BookstoreSystem.dao.orderDao.insertOrderInfo",param);
     }
+
+    public int updateOrderInfo(OrderDto order) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("order", order);
+        return sqlSession.update("com.example.BookstoreSystem.dao.orderDao.insertOrderInfo",param);
+    }
 }

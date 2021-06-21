@@ -33,4 +33,19 @@
                #{order.detailAddress},
                #{order.state});
     </insert>
+
+    <update id="updateOrderInfo" parameterType="com.example.BookstoreSystem.model.OrderDto">
+        UPDATE bookdb.`order`
+        SET `date`=#{order.date},
+            total_amount=#{order.totalAmount},
+            card_number=#{order.cardNumber},
+            card_expiration_date=#{order.cardExpirationDate},
+            card_type=#{order.cardType},
+            user_id=#{order.userId},
+            address_zone_code=#{order.addressZoneCode},
+            default_address=#{order.defaultAddress},
+            detail_address=#{order.detailAddress},
+            `state`=#{order.state}
+        WHERE `number`=#{order.number};
+    </update>
 </mapper>
