@@ -24,4 +24,10 @@ public class OrderDao {
         param.put("number", number);
         return sqlSession.selectOne("com.example.BookstoreSystem.dao.orderDao.selectOrderInfo",param);
     }
+
+    public int insertOrderInfo(OrderDto order) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("order", order);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.orderDao.insertOrderInfo",param);
+    }
 }

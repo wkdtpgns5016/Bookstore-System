@@ -17,4 +17,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDto selectOrderInfo(int number) { return orderDao.selectOrderInfo(number); }
+
+    @Override
+    public int insertOrderInfo(OrderDto order) { return orderDao.insertOrderInfo(order); }
 }
