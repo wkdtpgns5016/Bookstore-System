@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.BookstoreSystem.dao.OrderDao">
+    <select id="selectOrderSelectionByOrderNumber" resultType="com.example.BookstoreSystem.model.OrderSelectionDto">
+        SELECT * FROM order_selection;
+        WHERE order_number = #{orderNumber}
+    </select>
+</mapper>
