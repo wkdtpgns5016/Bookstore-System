@@ -1,5 +1,6 @@
 package com.example.BookstoreSystem.controller;
 
+import com.example.BookstoreSystem.model.AddCartDto;
 import com.example.BookstoreSystem.model.CartDto;
 import com.example.BookstoreSystem.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +30,9 @@ public class CartController {
 
     @DeleteMapping("/carts/{id}")
     public int deleteCartInfo(@PathVariable int id) { return cartService.deleteCartInfo(id); }
+
+    @GetMapping("/add-carts/{cardId}")
+    public List<AddCartDto> selectAddCartByCardId(@PathVariable int cardId) {
+        return cartService.selectAddCartByCardId(cardId);
+    }
 }

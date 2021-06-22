@@ -1,5 +1,6 @@
 package com.example.BookstoreSystem.service;
 
+import com.example.BookstoreSystem.model.AddCartDto;
 import com.example.BookstoreSystem.model.CartDto;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface CartService {
     public int updateCartInfo(CartDto cart);
     public int deleteCartByUserId(String userId);
     public int deleteCartInfo(int id);
+    public List<AddCartDto> selectAddCartByCardId(int cardId);
 }
