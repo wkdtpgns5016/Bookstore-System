@@ -12,4 +12,5 @@ public interface OrderService {
     public int updateOrderInfo(OrderDto order);
     public int deleteOrderInfo(int number);
     public List<OrderSelectionDto> selectOrderSelectionByOrderNumber(int orderNumber);
+    public int insertOrderSelectionInfo(OrderSelectionDto orderSelection);
 }

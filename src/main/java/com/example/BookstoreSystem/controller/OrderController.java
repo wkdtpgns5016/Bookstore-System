@@ -31,4 +31,9 @@ public class OrderController {
     public List<OrderSelectionDto> selectOrderSelectionByOrderNumber(@PathVariable int orderNumber) {
         return orderService.selectOrderSelectionByOrderNumber(orderNumber);
     }
+
+    @PostMapping("/order-selections")
+    public int insertOrderSelectionInfo(@PathVariable OrderSelectionDto orderSelection) {
+        return orderService.insertOrderSelectionInfo(orderSelection);
+    }
 }
