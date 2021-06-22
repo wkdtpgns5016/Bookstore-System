@@ -12,9 +12,9 @@
     </select>
   
     <insert id="insertCartInfo" parameterType="com.example.BookstoreSystem.model.CartDto">
-        INSERT INTO bookdb.cart
-            (user_id, creation_date)
-        VALUES(#{cart.userId}, #{cart.creationDate});
+        INSERT INTO cart
+            (id, user_id, creation_date)
+        VALUES(#{cart.id}, #{cart.userId}, NOW());
     </insert>
   
     <update id="updateCartInfo" parameterType="com.example.BookstoreSystem.model.CartDto">

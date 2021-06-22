@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 public class CartDto {
-    int id;
+    String id;
     String userId;
     Timestamp creationDate;
 }
