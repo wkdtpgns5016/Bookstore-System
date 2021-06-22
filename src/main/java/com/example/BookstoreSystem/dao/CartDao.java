@@ -26,6 +26,11 @@ public class CartDao {
         return sqlSession.selectOne("com.example.BookstoreSystem.dao.CartDao.selectCartInfo",param);
     }
 
+    public int insertCartInfo(CartDto cart) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("cart", cart);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.CartDao.insertCartInfo",param);
+      
     public int updateCartInfo(CartDto cart) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("cart", cart);

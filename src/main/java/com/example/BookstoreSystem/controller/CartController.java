@@ -3,10 +3,7 @@ package com.example.BookstoreSystem.controller;
 import com.example.BookstoreSystem.model.CartDto;
 import com.example.BookstoreSystem.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +18,10 @@ public class CartController {
     @GetMapping("/carts/{id}")
     public CartDto selectCartInfo(int id) { return cartService.selectCartInfo(id); }
 
+    @PostMapping("/carts")
+    public int insertCartInfo(@RequestBody CartDto cart) { return cartService.insertCartInfo(cart); }
+  
     @PutMapping("/carts")
     public int updateCartInfo(@RequestBody CartDto cart) { return cartService.updateCartInfo(cart); }
+  
 }
