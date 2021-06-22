@@ -20,4 +20,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public int insertCartInfo(CartDto cart) { return cartDao.insertCartInfo(cart); }
+  
+    @Override
+    public int updateCartInfo(CartDto cart) { return cartDao.updateCartInfo(cart); }
 }

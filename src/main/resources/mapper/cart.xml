@@ -10,10 +10,16 @@
     <select id="selectCartInfo" resultType="com.example.BookstoreSystem.model.CartDto">
         SELECT * FROM cart WHERE id = #{id};
     </select>
-
+  
     <insert id="insertCartInfo" parameterType="com.example.BookstoreSystem.model.CartDto">
         INSERT INTO bookdb.cart
             (user_id, creation_date)
         VALUES(#{cart.userId}, #{cart.creationDate});
     </insert>
+  
+    <update id="updateCartInfo" parameterType="com.example.BookstoreSystem.model.CartDto">
+        UPDATE cart
+        SET user_id=#{cart.userId}, creation_date=#{cart.createDate}
+        WHERE id=#{cart.id};
+    </update>
 </mapper>

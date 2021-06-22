@@ -8,4 +8,5 @@ public interface CartService {
     public List<CartDto> selectCartListByUserId(String userId);
     public CartDto selectCartInfo(int id);
     public int insertCartInfo(CartDto cart);
+    public int updateCartInfo(CartDto cart);
 }

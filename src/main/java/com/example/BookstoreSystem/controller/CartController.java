@@ -20,4 +20,8 @@ public class CartController {
 
     @PostMapping("/carts")
     public int insertCartInfo(@RequestBody CartDto cart) { return cartService.insertCartInfo(cart); }
+  
+    @PutMapping("/carts")
+    public int updateCartInfo(@RequestBody CartDto cart) { return cartService.updateCartInfo(cart); }
+  
 }
