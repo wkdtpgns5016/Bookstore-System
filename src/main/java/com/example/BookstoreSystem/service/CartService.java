@@ -14,4 +14,5 @@ public interface CartService {
     public int deleteCartInfo(int id);
     public List<AddCartDto> selectAddCartByCardId(int cardId);
     public int insertAddCartInfo(AddCartDto addCart);
+    public int deleteAddCartByCardId(int cartId);
 }
