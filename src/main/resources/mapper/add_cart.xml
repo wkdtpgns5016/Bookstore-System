@@ -4,7 +4,7 @@
 <mapper namespace="com.example.BookstoreSystem.dao.CartDao">
     <select id="selectAddCartByCardId" resultType="com.example.BookstoreSystem.model.CartDto">
         SELECT * FROM add_cart;
-        WHERE cart_id = #{cardId}
+        WHERE cart_id = #{cartId}
     </select>
 
     <insert id="insertAddCartInfo" parameterType="com.example.BookstoreSystem.model.AddCartDto">
@@ -12,4 +12,9 @@
             (cart_id, book_id, quantity)
         VALUES(#{addCart.cartId}, #{addCart.bookId}, #{addCart.quantity});
     </insert>
+
+    <delete id="deleteAddCartByCardId">
+        DELETE FROM add_cart
+        WHERE cart_id=#{cartId};
+    </delete>
 </mapper>

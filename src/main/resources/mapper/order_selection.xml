@@ -14,7 +14,7 @@
     </insert>
 
     <delete id="deleteOrderSelectionByOrderNumber">
-        DELETE FROM bookdb.order_selection
+        DELETE FROM order_selection
         WHERE order_number=#{orderSelection.orderNumber}
     </delete>
 </mapper>

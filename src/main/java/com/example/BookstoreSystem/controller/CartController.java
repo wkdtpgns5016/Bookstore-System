@@ -40,4 +40,7 @@ public class CartController {
     public int insertAddCartInfo(@RequestBody AddCartDto addCart) {
         return cartService.insertAddCartInfo(addCart);
     }
+
+    @DeleteMapping("/add-carts")
+    public int deleteAddCartByCardId(@PathVariable int cartId) { return cartService.deleteAddCartByCardId(cartId); }
 }

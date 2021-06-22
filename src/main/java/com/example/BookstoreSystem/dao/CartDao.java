@@ -51,9 +51,9 @@ public class CartDao {
         return sqlSession.delete("com.example.BookstoreSystem.dao.CartDao.deleteCartInfo",param);
     }
 
-    public List<AddCartDto> selectAddCartByCardId(int cardId) {
+    public List<AddCartDto> selectAddCartByCardId(int cartId) {
         HashMap<String,Object> param = new HashMap<>();
-        param.put("cardId", cardId);
+        param.put("cartId", cartId);
         return sqlSession.selectList("com.example.BookstoreSystem.dao.CartDao.selectAddCartByCardId",param);
     }
 
@@ -61,5 +61,11 @@ public class CartDao {
         HashMap<String,Object> param = new HashMap<>();
         param.put("addCart", addCart);
         return sqlSession.insert("com.example.BookstoreSystem.dao.CartDao.insertAddCartInfo",param);
+    }
+
+    public int deleteAddCartByCardId(int cartId) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("cartId", cartId);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.CartDao.deleteAddCartByCardId",param);
     }
 }

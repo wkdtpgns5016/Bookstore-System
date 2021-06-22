@@ -40,4 +40,9 @@ public class CartServiceImpl implements CartService {
     public int insertAddCartInfo(AddCartDto addCart) {
         return cartDao.insertAddCartInfo(addCart);
     }
+
+    @Override
+    public int deleteAddCartByCardId(int cartId) {
+        return cartDao.deleteAddCartByCardId(cartId);
+    }
 }
