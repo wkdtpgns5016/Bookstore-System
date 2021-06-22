@@ -2,6 +2,7 @@ package com.example.BookstoreSystem.service;
 
 import com.example.BookstoreSystem.dao.OrderDao;
 import com.example.BookstoreSystem.model.OrderDto;
+import com.example.BookstoreSystem.model.OrderSelectionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,4 +27,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public int deleteOrderInfo(int number) { return orderDao.deleteOrderInfo(number); }
+
+    @Override
+    public List<OrderSelectionDto> selectOrderSelectionByOrderNumber(int orderNumber) {
+        return orderDao.selectOrderSelectionByOrderNumber(orderNumber);
+    }
 }

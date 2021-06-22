@@ -1,6 +1,7 @@
 package com.example.BookstoreSystem.dao;
 
 import com.example.BookstoreSystem.model.OrderDto;
+import com.example.BookstoreSystem.model.OrderSelectionDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,11 @@ public class OrderDao {
         HashMap<String,Object> param = new HashMap<>();
         param.put("number", number);
         return sqlSession.delete("com.example.BookstoreSystem.dao.orderDao.deleteOrderInfo",param);
+    }
+
+    public List<OrderSelectionDto> selectOrderSelectionByOrderNumber(int orderNumber) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("orderNumber", orderNumber);
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.orderDao.selectOrderSelectionByOrderNumber",param);
     }
 }
