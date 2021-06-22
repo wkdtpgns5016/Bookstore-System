@@ -1,6 +1,7 @@
 package com.example.BookstoreSystem.service;
 
 import com.example.BookstoreSystem.dao.CartDao;
+import com.example.BookstoreSystem.model.AddCartDto;
 import com.example.BookstoreSystem.model.CartDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,4 +30,9 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public int deleteCartInfo(int id) { return cartDao.deleteCartInfo(id); }
+
+    @Override
+    public List<AddCartDto> selectAddCartByCardId(int cardId) {
+        return cartDao.selectAddCartByCardId(cardId);
+    }
 }

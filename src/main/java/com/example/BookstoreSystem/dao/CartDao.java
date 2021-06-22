@@ -1,5 +1,6 @@
 package com.example.BookstoreSystem.dao;
 
+import com.example.BookstoreSystem.model.AddCartDto;
 import com.example.BookstoreSystem.model.CartDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
@@ -48,5 +49,11 @@ public class CartDao {
         HashMap<String,Object> param = new HashMap<>();
         param.put("id", id);
         return sqlSession.delete("com.example.BookstoreSystem.dao.CartDao.deleteCartInfo",param);
+    }
+
+    public List<AddCartDto> selectAddCartByCardId(int cardId) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("cardId", cardId);
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.CartDao.selectAddCartByCardId",param);
     }
 }
