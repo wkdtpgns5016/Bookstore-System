@@ -11,4 +11,13 @@
         SELECT * FROM cart WHERE id = #{id};
     </select>
 
+    <delete id="deleteCartByUserId">
+        DELETE FROM cart
+        WHERE user_id=#{userId};
+    </delete>
+
+    <delete id="deleteCartInfo">
+        DELETE FROM cart
+        WHERE id=#{id};
+    </delete>
 </mapper>
