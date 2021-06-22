@@ -4,10 +4,12 @@ import com.example.BookstoreSystem.dao.CartDao;
 import com.example.BookstoreSystem.model.AddCartDto;
 import com.example.BookstoreSystem.model.CartDto;
 import com.example.BookstoreSystem.model.CartRequest;
+import com.example.BookstoreSystem.model.CartResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class CartServiceImpl implements CartService {
     public List<CartDto> selectCartListByUserId(String userId) { return cartDao.selectCartListByUserId(userId); }
 
     @Override
-    public CartDto selectCartInfo(int id) { return cartDao.selectCartInfo(id); }
+    public CartDto selectCartInfo(String id) { return cartDao.selectCartInfo(id); }
 
     @Override
     public int insertCartInfo(CartDto cart) { return cartDao.insertCartInfo(cart); }
@@ -32,10 +34,10 @@ public class CartServiceImpl implements CartService {
     public int deleteCartByUserId(String userId) { return cartDao.deleteCartByUserId(userId); }
 
     @Override
-    public int deleteCartInfo(int id) { return cartDao.deleteCartInfo(id); }
+    public int deleteCartInfo(String id) { return cartDao.deleteCartInfo(id); }
 
     @Override
-    public List<AddCartDto> selectAddCartByCardId(int cardId) {
+    public List<AddCartDto> selectAddCartByCardId(String cardId) {
         return cartDao.selectAddCartByCardId(cardId);
     }
 
@@ -45,7 +47,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public int deleteAddCartByCardId(int cartId) {
+    public int deleteAddCartByCardId(String cartId) {
         return cartDao.deleteAddCartByCardId(cartId);
     }
 
@@ -67,5 +69,19 @@ public class CartServiceImpl implements CartService {
         }
 
         return result;
+    }
+
+    @Override
+    public CartResponse readCart(String cartId) {
+        List<AddCartDto> carts = selectAddCartByCardId(cartId);
+        CartDto cartDto = selectCartInfo(cartId);
+
+        CartResponse response = new CartResponse();
+        response.setId(cartDto.getId());
+        response.setUserId(cartDto.getUserId());
+        response.setCreationDate(cartDto.getCreationDate());
+        response.setCarts(carts);
+
+        return response;
     }
 }
