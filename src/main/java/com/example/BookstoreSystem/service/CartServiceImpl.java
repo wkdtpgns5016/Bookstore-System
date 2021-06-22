@@ -84,4 +84,10 @@ public class CartServiceImpl implements CartService {
 
         return response;
     }
+
+    @Override
+    public int deleteCart(String cartId) {
+        deleteAddCartByCardId(cartId);
+        return deleteCartInfo(cartId);
+    }
 }

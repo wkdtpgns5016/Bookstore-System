@@ -19,4 +19,5 @@ public interface CartService {
     public int deleteAddCartByCardId(String cartId);
     public int creatAddCart(CartRequest cartRequest);
     public CartResponse readCart(String cartId);
+    public int deleteCart(String cartId);
 }
