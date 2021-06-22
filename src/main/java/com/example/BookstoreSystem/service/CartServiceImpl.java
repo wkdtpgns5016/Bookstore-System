@@ -3,9 +3,12 @@ package com.example.BookstoreSystem.service;
 import com.example.BookstoreSystem.dao.CartDao;
 import com.example.BookstoreSystem.model.AddCartDto;
 import com.example.BookstoreSystem.model.CartDto;
+import com.example.BookstoreSystem.model.CartRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service("CartService")
@@ -44,5 +47,25 @@ public class CartServiceImpl implements CartService {
     @Override
     public int deleteAddCartByCardId(int cartId) {
         return cartDao.deleteAddCartByCardId(cartId);
+    }
+
+    @Override
+    public int creatAddCart(CartRequest cartRequest) {
+        SimpleDateFormat format = new SimpleDateFormat ( "yyyyMMddHHmmss");
+        Date time = new Date();
+        String date = format.format(time);
+        String id = date + cartRequest.getUserId();
+
+        CartDto cartDto = new CartDto();
+        cartDto.setId(id);
+        cartDto.setUserId(cartRequest.getUserId());
+        int result = insertCartInfo(cartDto);
+
+        for(AddCartDto cart : cartRequest.getCarts()) {
+            cart.setCartId(id);
+            insertAddCartInfo(cart);
+        }
+
+        return result;
     }
 }

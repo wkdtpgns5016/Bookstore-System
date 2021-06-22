@@ -6,7 +6,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class AddCartDto {
-    int cardId;
+    String cartId;
     int bookId;
     int quantity;
 }
