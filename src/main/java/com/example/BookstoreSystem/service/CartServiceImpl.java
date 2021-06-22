@@ -17,4 +17,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public CartDto selectCartInfo(int id) { return cartDao.selectCartInfo(id); }
+
+    @Override
+    public int insertCartInfo(CartDto cart) { return cartDao.insertCartInfo(cart); }
 }
