@@ -49,4 +49,10 @@ public class OrderDao {
         param.put("orderNumber", orderNumber);
         return sqlSession.selectList("com.example.BookstoreSystem.dao.orderDao.selectOrderSelectionByOrderNumber",param);
     }
+
+    public int insertOrderSelectionInfo(OrderSelectionDto orderSelection) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("orderSelection", orderSelection);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.orderDao.insertOrderSelectionInfo",param);
+    }
 }

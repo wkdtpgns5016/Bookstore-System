@@ -32,4 +32,9 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderSelectionDto> selectOrderSelectionByOrderNumber(int orderNumber) {
         return orderDao.selectOrderSelectionByOrderNumber(orderNumber);
     }
+
+    @Override
+    public int insertOrderSelectionInfo(OrderSelectionDto orderSelection) {
+        return orderDao.insertOrderSelectionInfo(orderSelection);
+    }
 }
