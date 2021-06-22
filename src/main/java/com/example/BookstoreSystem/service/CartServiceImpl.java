@@ -35,4 +35,9 @@ public class CartServiceImpl implements CartService {
     public List<AddCartDto> selectAddCartByCardId(int cardId) {
         return cartDao.selectAddCartByCardId(cardId);
     }
+
+    @Override
+    public int insertAddCartInfo(AddCartDto addCart) {
+        return cartDao.insertAddCartInfo(addCart);
+    }
 }

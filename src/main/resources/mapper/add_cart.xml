@@ -6,4 +6,10 @@
         SELECT * FROM add_cart;
         WHERE cart_id = #{cardId}
     </select>
+
+    <insert id="insertAddCartInfo" parameterType="com.example.BookstoreSystem.model.AddCartDto">
+        INSERT INTO add_cart
+            (cart_id, book_id, quantity)
+        VALUES(#{addCart.cartId}, #{addCart.bookId}, #{addCart.quantity});
+    </insert>
 </mapper>

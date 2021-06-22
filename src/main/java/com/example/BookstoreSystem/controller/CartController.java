@@ -35,4 +35,9 @@ public class CartController {
     public List<AddCartDto> selectAddCartByCardId(@PathVariable int cardId) {
         return cartService.selectAddCartByCardId(cardId);
     }
+
+    @PutMapping("/add-carts")
+    public int insertAddCartInfo(@RequestBody AddCartDto addCart) {
+        return cartService.insertAddCartInfo(addCart);
+    }
 }
