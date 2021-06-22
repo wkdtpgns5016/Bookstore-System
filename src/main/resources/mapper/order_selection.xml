@@ -12,4 +12,9 @@
             (order_number, book_id, quantity)
         VALUES(#{orderSelection.orderNumber}, #{orderSelection.bookId}, #{orderSelection.quantity});
     </insert>
+
+    <delete id="deleteOrderSelectionByOrderNumber">
+        DELETE FROM bookdb.order_selection
+        WHERE order_number=#{orderSelection.orderNumber}
+    </delete>
 </mapper>

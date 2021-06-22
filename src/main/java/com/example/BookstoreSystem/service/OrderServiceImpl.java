@@ -37,4 +37,9 @@ public class OrderServiceImpl implements OrderService {
     public int insertOrderSelectionInfo(OrderSelectionDto orderSelection) {
         return orderDao.insertOrderSelectionInfo(orderSelection);
     }
+
+    @Override
+    public int deleteOrderSelectionByOrderNumber(int orderNumber) {
+        return orderDao.deleteOrderSelectionByOrderNumber(orderNumber);
+    }
 }

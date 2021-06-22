@@ -55,4 +55,10 @@ public class OrderDao {
         param.put("orderSelection", orderSelection);
         return sqlSession.insert("com.example.BookstoreSystem.dao.orderDao.insertOrderSelectionInfo",param);
     }
+
+    public int deleteOrderSelectionByOrderNumber(int orderNumber) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("orderNumber", orderNumber);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.orderDao.deleteOrderSelectionByOrderNumber",param);
+    }
 }

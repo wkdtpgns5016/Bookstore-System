@@ -36,4 +36,9 @@ public class OrderController {
     public int insertOrderSelectionInfo(@PathVariable OrderSelectionDto orderSelection) {
         return orderService.insertOrderSelectionInfo(orderSelection);
     }
+
+    @DeleteMapping("/order-selections/{orderNumber}")
+    public int deleteOrderSelectionByOrderNumber(@PathVariable int orderNumber) {
+        return orderService.deleteOrderSelectionByOrderNumber(orderNumber);
+    }
 }
