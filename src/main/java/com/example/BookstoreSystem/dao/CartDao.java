@@ -35,5 +35,16 @@ public class CartDao {
         HashMap<String,Object> param = new HashMap<>();
         param.put("cart", cart);
         return sqlSession.update("com.example.BookstoreSystem.dao.CartDao.updateCartInfo",param);
+      
+    public int deleteCartByUserId(String userId) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("userId", userId);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.CartDao.deleteCartByUserId",param);
+    }
+
+    public int deleteCartInfo(int id) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("id", id);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.CartDao.deleteCartInfo",param);
     }
 }

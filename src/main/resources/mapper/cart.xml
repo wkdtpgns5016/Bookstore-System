@@ -22,4 +22,14 @@
         SET user_id=#{cart.userId}, creation_date=#{cart.createDate}
         WHERE id=#{cart.id};
     </update>
+
+    <delete id="deleteCartByUserId">
+        DELETE FROM cart
+        WHERE user_id=#{userId};
+    </delete>
+
+    <delete id="deleteCartInfo">
+        DELETE FROM cart
+        WHERE id=#{id};
+    </delete>
 </mapper>

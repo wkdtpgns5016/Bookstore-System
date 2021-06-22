@@ -9,4 +9,6 @@ public interface CartService {
     public CartDto selectCartInfo(int id);
     public int insertCartInfo(CartDto cart);
     public int updateCartInfo(CartDto cart);
+    public int deleteCartByUserId(String userId);
+    public int deleteCartInfo(int id);
 }
