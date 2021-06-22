@@ -13,10 +13,10 @@ public class CartController {
     public CartController(CartService cartService) { this.cartService = cartService; }
 
     @GetMapping("/carts")
-    public List<CartDto> selectCartListByUserId(String userId) { return cartService.selectCartListByUserId(userId); }
+    public List<CartDto> selectCartListByUserId(@PathVariable String userId) { return cartService.selectCartListByUserId(userId); }
 
     @GetMapping("/carts/{id}")
-    public CartDto selectCartInfo(int id) { return cartService.selectCartInfo(id); }
+    public CartDto selectCartInfo(@PathVariable int id) { return cartService.selectCartInfo(id); }
   
     @PostMapping("/carts")
     public int insertCartInfo(@RequestBody CartDto cart) { return cartService.insertCartInfo(cart); }
