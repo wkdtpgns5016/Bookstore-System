@@ -11,4 +11,9 @@
         SELECT * FROM cart WHERE id = #{id};
     </select>
 
+    <update id="updateCartInfo" parameterType="com.example.BookstoreSystem.model.CartDto">
+        UPDATE cart
+        SET user_id=#{cart.userId}, creation_date=#{cart.createDate}
+        WHERE id=#{cart.id};
+    </update>
 </mapper>

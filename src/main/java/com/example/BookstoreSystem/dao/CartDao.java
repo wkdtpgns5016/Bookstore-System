@@ -25,4 +25,10 @@ public class CartDao {
         param.put("id", id);
         return sqlSession.selectOne("com.example.BookstoreSystem.dao.CartDao.selectCartInfo",param);
     }
+
+    public int updateCartInfo(CartDto cart) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("cart", cart);
+        return sqlSession.update("com.example.BookstoreSystem.dao.CartDao.updateCartInfo",param);
+    }
 }
