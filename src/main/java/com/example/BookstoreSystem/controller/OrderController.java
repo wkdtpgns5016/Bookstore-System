@@ -11,18 +11,18 @@ public class OrderController {
     private final OrderService orderService;
     public OrderController(OrderService orderService) { this.orderService = orderService; }
 
-    @GetMapping("")
+    @GetMapping("/orders")
     public List<OrderDto> selectOrderList() { return orderService.selectOrderList(); }
 
-    @GetMapping("/{number}")
+    @GetMapping("/orders/{number}")
     public OrderDto selectOrderInfo(@PathVariable int number) { return orderService.selectOrderInfo(number); }
 
-    @PostMapping("")
+    @PostMapping("/orders")
     public int insertOrderInfo(@RequestBody OrderDto order) { return orderService.insertOrderInfo(order); }
 
-    @PutMapping("")
+    @PutMapping("/orders")
     public int updateOrderInfo(@RequestBody OrderDto order) { return orderService.updateOrderInfo(order); }
 
-    @DeleteMapping("{number}")
+    @DeleteMapping("/orders/{number}")
     public int deleteOrderInfo(@PathVariable int number) { return orderService.deleteOrderInfo(number); }
 }
