@@ -3,7 +3,7 @@
 
 <mapper namespace="com.example.BookstoreSystem.dao.OrderDao">
     <select id="selectOrderSelectionByOrderNumber" resultType="com.example.BookstoreSystem.model.OrderSelectionDto">
-        SELECT * FROM order_selection;
+        SELECT * FROM order_selection
         WHERE order_number = #{orderNumber}
     </select>
 

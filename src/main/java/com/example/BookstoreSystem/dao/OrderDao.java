@@ -20,6 +20,12 @@ public class OrderDao {
         return sqlSession.selectList("com.example.BookstoreSystem.dao.OrderDao.selectOrderList");
     }
 
+    public List<OrderDto> selectOrderListByUserId(String userId) {
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("userId", userId);
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.OrderDao.selectOrderListByUserId",param);
+    }
+
     public OrderDto selectOrderInfo(String number) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("number", number);
