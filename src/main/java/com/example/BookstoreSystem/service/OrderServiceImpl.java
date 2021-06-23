@@ -132,4 +132,10 @@ public class OrderServiceImpl implements OrderService {
 
         return response;
     }
+
+    @Override
+    public int deleteOrder(String orderNumber) {
+        deleteOrderSelectionByOrderNumber(orderNumber);
+        return deleteOrderInfo(orderNumber);
+    }
 }

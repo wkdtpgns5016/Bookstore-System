@@ -28,4 +28,9 @@ public class OrderController {
     public List<OrderDto> readOrderByUserId(@PathVariable String userId) {
         return orderService.selectOrderListByUserId(userId);
     }
+
+    @DeleteMapping("/orders/{ordersNumber}")
+    public int deleteOrder(@PathVariable String ordersNumber) {
+        return orderService.deleteOrder(ordersNumber);
+    }
 }
