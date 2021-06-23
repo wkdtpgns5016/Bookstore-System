@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @Setter
 @Getter
 public class OrderDto {
-    int number;
+    String number;
     Timestamp date;
     int totalAmount;
     String cardNumber;

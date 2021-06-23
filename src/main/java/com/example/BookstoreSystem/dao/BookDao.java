@@ -20,7 +20,7 @@ public class BookDao {
         return sqlSession.selectList("com.example.BookstoreSystem.dao.BookDao.selectBookList");
     }
 
-    public BookDto selectBookInfo(String bookId) {
+    public BookDto selectBookInfo(int bookId) {
         HashMap<String, Object> param = new HashMap<>();
         param.put("bookId",bookId);
         return sqlSession.selectOne("com.example.BookstoreSystem.dao.BookDao.selectBookInfo",param);
@@ -38,7 +38,7 @@ public class BookDao {
         return sqlSession.insert("com.example.BookstoreSystem.dao.BookDao.updateBookInfo",param);
     }
 
-    public int deleteBookInfo(String bookId) {
+    public int deleteBookInfo(int bookId) {
         HashMap<String, Object> param = new HashMap<>();
         param.put("bookId",bookId);
         return sqlSession.delete("com.example.BookstoreSystem.dao.BookDao.deleteBookInfo",param);

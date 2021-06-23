@@ -17,48 +17,48 @@ public class OrderDao {
     public OrderDao(SqlSession sqlSession) { this.sqlSession = sqlSession; }
 
     public List<OrderDto> selectOrderList() {
-        return sqlSession.selectList("com.example.BookstoreSystem.dao.orderDao.selectOrderList");
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.OrderDao.selectOrderList");
     }
 
-    public OrderDto selectOrderInfo(int number) {
+    public OrderDto selectOrderInfo(String number) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("number", number);
-        return sqlSession.selectOne("com.example.BookstoreSystem.dao.orderDao.selectOrderInfo",param);
+        return sqlSession.selectOne("com.example.BookstoreSystem.dao.OrderDao.selectOrderInfo",param);
     }
 
     public int insertOrderInfo(OrderDto order) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("order", order);
-        return sqlSession.insert("com.example.BookstoreSystem.dao.orderDao.insertOrderInfo",param);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.OrderDao.insertOrderInfo",param);
     }
 
     public int updateOrderInfo(OrderDto order) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("order", order);
-        return sqlSession.update("com.example.BookstoreSystem.dao.orderDao.updateOrderInfo",param);
+        return sqlSession.update("com.example.BookstoreSystem.dao.OrderDao.updateOrderInfo",param);
     }
 
-    public int deleteOrderInfo(int number) {
+    public int deleteOrderInfo(String number) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("number", number);
-        return sqlSession.delete("com.example.BookstoreSystem.dao.orderDao.deleteOrderInfo",param);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.OrderDao.deleteOrderInfo",param);
     }
 
-    public List<OrderSelectionDto> selectOrderSelectionByOrderNumber(int orderNumber) {
+    public List<OrderSelectionDto> selectOrderSelectionByOrderNumber(String orderNumber) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("orderNumber", orderNumber);
-        return sqlSession.selectList("com.example.BookstoreSystem.dao.orderDao.selectOrderSelectionByOrderNumber",param);
+        return sqlSession.selectList("com.example.BookstoreSystem.dao.OrderDao.selectOrderSelectionByOrderNumber",param);
     }
 
     public int insertOrderSelectionInfo(OrderSelectionDto orderSelection) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("orderSelection", orderSelection);
-        return sqlSession.insert("com.example.BookstoreSystem.dao.orderDao.insertOrderSelectionInfo",param);
+        return sqlSession.insert("com.example.BookstoreSystem.dao.OrderDao.insertOrderSelectionInfo",param);
     }
 
-    public int deleteOrderSelectionByOrderNumber(int orderNumber) {
+    public int deleteOrderSelectionByOrderNumber(String orderNumber) {
         HashMap<String,Object> param = new HashMap<>();
         param.put("orderNumber", orderNumber);
-        return sqlSession.delete("com.example.BookstoreSystem.dao.orderDao.deleteOrderSelectionByOrderNumber",param);
+        return sqlSession.delete("com.example.BookstoreSystem.dao.OrderDao.deleteOrderSelectionByOrderNumber",param);
     }
 }

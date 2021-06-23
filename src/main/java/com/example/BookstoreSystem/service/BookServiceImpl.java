@@ -15,7 +15,7 @@ public class BookServiceImpl implements BookService {
     public List<BookDto> selectBookList() { return bookDao.selectBookList(); }
 
     @Override
-    public BookDto selectBookInfo(String bookId) { return bookDao.selectBookInfo(bookId); }
+    public BookDto selectBookInfo(int bookId) { return bookDao.selectBookInfo(bookId); }
 
     @Override
     public int insertBookInfo(BookDto book) { return bookDao.insertBookInfo(book); }
@@ -24,6 +24,6 @@ public class BookServiceImpl implements BookService {
     public int updateBookInfo(BookDto book) { return bookDao.updateBookInfo(book); }
 
     @Override
-    public int deleteBookInfo(String bookId) { return bookDao.deleteBookInfo(bookId); }
+    public int deleteBookInfo(int bookId) { return bookDao.deleteBookInfo(bookId); }
 
 }

@@ -17,7 +17,7 @@ public class BookController {
     public List<BookDto> selectBookList(){ return bookService.selectBookList(); }
 
     @GetMapping("/{bookId}")
-    public BookDto selectBookInfo(@PathVariable String bookId){ return bookService.selectBookInfo(bookId); }
+    public BookDto selectBookInfo(@PathVariable int bookId){ return bookService.selectBookInfo(bookId); }
 
     @PostMapping("")
     public int insertBookInfo(@RequestBody BookDto book){ return bookService.insertBookInfo(book); }
@@ -26,5 +26,5 @@ public class BookController {
     public int updateBookInfo(@RequestBody BookDto book){ return bookService.updateBookInfo(book); }
 
     @DeleteMapping("/{bookId}")
-    public int deleteBookInfo(@PathVariable String bookId){ return bookService.deleteBookInfo(bookId); }
+    public int deleteBookInfo(@PathVariable int bookId){ return bookService.deleteBookInfo(bookId); }
 }
