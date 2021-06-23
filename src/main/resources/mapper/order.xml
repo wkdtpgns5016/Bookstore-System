@@ -12,7 +12,8 @@
 
     <insert id="insertOrderInfo" parameterType="com.example.BookstoreSystem.model.OrderDto">
         INSERT INTO `order`
-        (`date`,
+        (`number`,
+         `date`,
          total_amount,
          card_number,
          card_expiration_date,
@@ -22,7 +23,8 @@
          default_address,
          detail_address,
          `state`)
-        VALUES(#{order.date},
+        VALUES(#{order.number},
+               NOW(),
                #{order.totalAmount},
                #{order.cardNumber},
                #{order.cardExpirationDate},

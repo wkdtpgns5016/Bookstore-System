@@ -8,7 +8,7 @@
     </select>
 
     <insert id="insertOrderSelectionInfo" parameterType="com.example.BookstoreSystem.model.OrderSelectionDto">
-        INSERT INTO bookdb.order_selection
+        INSERT INTO order_selection
             (order_number, book_id, quantity)
         VALUES(#{orderSelection.orderNumber}, #{orderSelection.bookId}, #{orderSelection.quantity});
     </insert>
