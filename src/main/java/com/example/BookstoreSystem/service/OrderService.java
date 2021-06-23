@@ -19,4 +19,5 @@ public interface OrderService {
     public int deleteOrderSelectionByOrderNumber(String orderNumber);
     public int createOrder(OrderRequest orderRequest);
     public OrderResponse readOrder(String orderNumber);
+    public int deleteOrder(String orderNumber);
 }

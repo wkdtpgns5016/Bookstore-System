@@ -15,6 +15,6 @@
 
     <delete id="deleteOrderSelectionByOrderNumber">
         DELETE FROM order_selection
-        WHERE order_number=#{orderSelection.orderNumber}
+        WHERE order_number=#{orderNumber}
     </delete>
 </mapper>

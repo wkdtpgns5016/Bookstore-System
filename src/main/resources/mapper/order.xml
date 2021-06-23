@@ -57,6 +57,6 @@
 
     <delete id="deleteOrderInfo">
         DELETE FROM `order`
-        WHERE `number`=#{order.number};
+        WHERE `number`=#{number};
     </delete>
 </mapper>
