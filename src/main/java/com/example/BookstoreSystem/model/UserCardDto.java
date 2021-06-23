@@ -10,6 +10,6 @@ import java.sql.Timestamp;
 public class UserCardDto {
     String userId;
     String number;
-    Timestamp expirationDate;
+    String expirationDate;
     String type;
 }

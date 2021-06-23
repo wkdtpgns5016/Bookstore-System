@@ -1,14 +1,12 @@
 package com.example.BookstoreSystem.service;
 
 import com.example.BookstoreSystem.dao.OrderDao;
-import com.example.BookstoreSystem.model.BookDto;
-import com.example.BookstoreSystem.model.OrderDto;
-import com.example.BookstoreSystem.model.OrderRequest;
-import com.example.BookstoreSystem.model.OrderSelectionDto;
+import com.example.BookstoreSystem.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +21,11 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDto> selectOrderList() { return orderDao.selectOrderList(); }
+
+    @Override
+    public List<OrderDto> selectOrderListByUserId(String userId) {
+        return orderDao.selectOrderListByUserId(userId);
+    }
 
     @Override
     public OrderDto selectOrderInfo(String number) { return orderDao.selectOrderInfo(number); }
@@ -88,5 +91,45 @@ public class OrderServiceImpl implements OrderService {
             amount += price;
         }
         return amount;
+    }
+
+    @Override
+    public OrderResponse readOrder(String orderNumber) {
+        OrderDto orderDto = selectOrderInfo(orderNumber);
+        List<OrderSelectionDto> orderSelectionDtos = selectOrderSelectionByOrderNumber(orderNumber);
+
+        OrderResponse.Card card = new OrderResponse.Card();
+        card.setCardType(orderDto.getCardType());
+        card.setCardExpirationDate(orderDto.getCardExpirationDate());
+        card.setCardNumber(orderDto.getCardNumber());
+
+        OrderResponse.Address address = new OrderResponse.Address();
+        address.setAddressZoneCode(orderDto.getAddressZoneCode());
+        address.setDetailAddress(orderDto.getDetailAddress());
+        address.setDefaultAddress(orderDto.getDefaultAddress());
+
+        List<OrderResponse.Order> orders = new ArrayList<>();
+        for(OrderSelectionDto orderSelection : orderSelectionDtos) {
+            BookDto bookDto = bookService.selectBookInfo(orderSelection.getBookId());
+
+            OrderResponse.Order order = new OrderResponse.Order();
+            order.setBook(bookDto);
+            order.setQuantity(orderSelection.getQuantity());
+            order.setPrice();
+
+            orders.add(order);
+        }
+
+        OrderResponse response = new OrderResponse();
+        response.setNumber(orderDto.getNumber());
+        response.setUserId(orderDto.getUserId());
+        response.setDate(orderDto.getDate());
+        response.setTotalAmount(orderDto.getTotalAmount());
+        response.setState(orderDto.getState());
+        response.setCard(card);
+        response.setAddress(address);
+        response.setOrders(orders);
+
+        return response;
     }
 }

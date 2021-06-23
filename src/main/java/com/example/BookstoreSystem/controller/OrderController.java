@@ -2,6 +2,7 @@ package com.example.BookstoreSystem.controller;
 
 import com.example.BookstoreSystem.model.OrderDto;
 import com.example.BookstoreSystem.model.OrderRequest;
+import com.example.BookstoreSystem.model.OrderResponse;
 import com.example.BookstoreSystem.model.OrderSelectionDto;
 import com.example.BookstoreSystem.service.OrderService;
 import org.springframework.web.bind.annotation.*;
@@ -16,5 +17,15 @@ public class OrderController {
     @PostMapping("/orders")
     public int createOrder(@RequestBody OrderRequest orderRequest) {
         return orderService.createOrder(orderRequest);
+    }
+
+    @GetMapping("/orders/{ordersNumber}")
+    public OrderResponse readOrder(@PathVariable String ordersNumber) {
+        return orderService.readOrder(ordersNumber);
+    }
+
+    @GetMapping("/user-orders/{userId}")
+    public List<OrderDto> readOrderByUserId(@PathVariable String userId) {
+        return orderService.selectOrderListByUserId(userId);
     }
 }

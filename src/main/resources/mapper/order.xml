@@ -6,6 +6,10 @@
         SELECT * FROM `order`;
     </select>
 
+    <select id="selectOrderListByUserId" resultType="com.example.BookstoreSystem.model.OrderDto">
+        SELECT * FROM `order` WHERE user_id = #{userId};
+    </select>
+
     <select id="selectOrderInfo" resultType="com.example.BookstoreSystem.model.OrderDto">
         SELECT * FROM `order` WHERE `number` = #{number};
     </select>
