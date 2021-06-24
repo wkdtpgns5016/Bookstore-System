@@ -22,5 +22,5 @@ public interface UserService {
     public int deleteUserAddressInfo(String userId, String type);
     public int deleteUserCardInfo(String userId, String number);
     public UserResponse getUser(String userId);
-
+    public int deleteUser(String userId);
 }

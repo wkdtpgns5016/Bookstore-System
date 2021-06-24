@@ -40,13 +40,5 @@ public class UserController {
     public int updateUserCardInfo(@RequestBody UserCardDto card){ return userService.updateUserCardInfo(card); }
 
     @DeleteMapping("/users/{userId}")
-    public int deleteUserInfo(@PathVariable String userId) { return userService.deleteUserInfo(userId); }
-
-    @DeleteMapping("/user-addresses/{userId}/{type}")
-    public int deleteUserAddressInfo(@PathVariable String userId, @PathVariable String type) { return userService.deleteUserAddressInfo(userId, type); }
-
-    @DeleteMapping("/user-cards/{userId}/{number}")
-    public int deleteUserCardInfo(@PathVariable String userId, @PathVariable String number) { return userService.deleteUserCardInfo(userId, number); }
-
-
+    public int deleteUser(@PathVariable String userId) { return userService.deleteUser(userId); }
 }
