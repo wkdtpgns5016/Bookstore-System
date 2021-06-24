@@ -1,10 +1,7 @@
 package com.example.BookstoreSystem.service;
 
 import com.example.BookstoreSystem.dao.UserDao;
-import com.example.BookstoreSystem.model.UserAddressDto;
-import com.example.BookstoreSystem.model.UserCardDto;
-import com.example.BookstoreSystem.model.UserDto;
-import com.example.BookstoreSystem.model.UserResponse;
+import com.example.BookstoreSystem.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +9,14 @@ import java.util.List;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService{
-    final
-    UserDao userDao;
-    public UserServiceImpl(UserDao userDao) { this.userDao = userDao; }
+    private final UserDao userDao;
+    private final OrderService orderService;
+    private final CartService cartService;
+    public UserServiceImpl(UserDao userDao, CartService cartService, OrderService orderService) {
+        this.userDao = userDao;
+        this.cartService = cartService;
+        this.orderService = orderService;
+    }
 
     @Override
     public List selectUserList() { return userDao.selectUserList(); }
@@ -77,4 +79,18 @@ public class UserServiceImpl implements UserService{
         return response;
     }
 
+    @Override
+    public int deleteUser(String userId) {
+        List<OrderDto> orderDtos = orderService.selectOrderListByUserId(userId);
+        List<CartDto> cartDtos = cartService.selectCartListByUserId(userId);
+
+        for(OrderDto orderDto : orderDtos) {
+            orderService.deleteOrder(orderDto.getNumber());
+        }
+        for(CartDto cartDto : cartDtos) {
+            cartService.deleteCart(cartDto.getId());
+        }
+
+        return deleteUserInfo(userId);
+    }
 }
