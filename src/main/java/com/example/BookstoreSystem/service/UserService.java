@@ -3,6 +3,7 @@ package com.example.BookstoreSystem.service;
 import com.example.BookstoreSystem.model.UserAddressDto;
 import com.example.BookstoreSystem.model.UserCardDto;
 import com.example.BookstoreSystem.model.UserDto;
+import com.example.BookstoreSystem.model.UserResponse;
 
 import java.util.List;
 
@@ -20,5 +21,6 @@ public interface UserService {
     public int deleteUserInfo(String userId);
     public int deleteUserAddressInfo(String userId, String type);
     public int deleteUserCardInfo(String userId, String number);
+    public UserResponse getUser(String userId);
 
 }
