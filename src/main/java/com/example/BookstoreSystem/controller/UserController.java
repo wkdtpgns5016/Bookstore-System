@@ -3,6 +3,7 @@ package com.example.BookstoreSystem.controller;
 import com.example.BookstoreSystem.model.UserAddressDto;
 import com.example.BookstoreSystem.model.UserCardDto;
 import com.example.BookstoreSystem.model.UserDto;
+import com.example.BookstoreSystem.model.UserResponse;
 import com.example.BookstoreSystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,22 +19,16 @@ public class UserController {
     public List<UserDto> selectUserList() { return userService.selectUserList(); }
 
     @GetMapping("/users/{userId}")
-    public UserDto selectUserInfo(@PathVariable String userId) { return userService.selectUserInfo(userId); }
-
-    @GetMapping("/user-addresses/{userId}")
-    public List<UserAddressDto> selectUserAddressInfo(@PathVariable String userId) { return userService.selectUserAddressInfo(userId); }
-
-    @GetMapping("/user-cards/{userId}")
-    public List<UserCardDto> selectUserCardInfo(@PathVariable String userId) { return userService.selectUserCardInfo(userId); }
+    public UserResponse getUser(@PathVariable String userId) { return userService.getUser(userId); }
 
     @PostMapping("/users")
-    public int insertUserInfo(@RequestBody UserDto user){ return userService.insertUserInfo(user); }
+    public int signUp(@RequestBody UserDto user){ return userService.insertUserInfo(user); }
 
     @PostMapping("/user-addresses")
-    public int insertUserAddressInfo(@RequestBody UserAddressDto address){ return userService.insertUserAddressInfo(address); }
+    public int CreateAddress(@RequestBody UserAddressDto address){ return userService.insertUserAddressInfo(address); }
 
     @PostMapping("/user-cards")
-    public int insertUserCardInfo(@RequestBody UserCardDto card){ return userService.insertUserCardInfo(card); }
+    public int CreateCard(@RequestBody UserCardDto card){ return userService.insertUserCardInfo(card); }
 
     @PutMapping("/users")
     public int updateUserInfo(@RequestBody UserDto user){ return userService.updateUserInfo(user); }
@@ -52,5 +47,6 @@ public class UserController {
 
     @DeleteMapping("/user-cards/{userId}/{number}")
     public int deleteUserCardInfo(@PathVariable String userId, @PathVariable String number) { return userService.deleteUserCardInfo(userId, number); }
+
 
 }

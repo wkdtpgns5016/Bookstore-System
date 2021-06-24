@@ -4,6 +4,7 @@ import com.example.BookstoreSystem.dao.UserDao;
 import com.example.BookstoreSystem.model.UserAddressDto;
 import com.example.BookstoreSystem.model.UserCardDto;
 import com.example.BookstoreSystem.model.UserDto;
+import com.example.BookstoreSystem.model.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +61,20 @@ public class UserServiceImpl implements UserService{
     @Override
     public int deleteUserCardInfo(String userId, String number) {
         return userDao.deleteUserCardInfo(userId,number);
+    }
+
+    @Override
+    public UserResponse getUser(String userId) {
+        UserDto user = selectUserInfo(userId);
+
+        UserResponse response = new UserResponse();
+        response.setId(user.getId());
+        response.setPassword(user.getPassword());
+        response.setName(user.getName());
+        response.setAddresses(selectUserAddressInfo(userId));
+        response.setCards(selectUserCardInfo(userId));
+
+        return response;
     }
 
 }
